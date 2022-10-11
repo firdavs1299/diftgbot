@@ -50,3 +50,13 @@ Consider the following:
 2022-10-11 07:16:31.722  INFO 7904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
 2022-10-11 07:16:31.747  INFO 7904 --- [main] com.example.tgbot.TgbotApplication       : Started TgbotApplication in 3.504 seconds (JVM running for 3.953)
 2022-10-11 07:16:33.147  INFO 7904 --- [scheduling-1] com.example.tgbot.services.PingTask      : Ping www.google.com, OK: response code 200
+2022-10-11 07:28:32.744  INFO 8516 --- [main] com.example.tgbot.TgbotApplication       : Starting TgbotApplication using Java 16.0.1 on WIN-L2SVF18BLE9 with PID 8516 (C:\Users\User\Desktop\tgbot\target\classes started by User in C:\Users\User\Desktop\tgbot)
+2022-10-11 07:28:32.747  INFO 8516 --- [main] com.example.tgbot.TgbotApplication       : No active profile set, falling back to default profiles: default
+2022-10-11 07:28:33.663  INFO 8516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2022-10-11 07:28:33.674  INFO 8516 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-10-11 07:28:33.674  INFO 8516 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-10-11 07:28:33.752  INFO 8516 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-10-11 07:28:33.753  INFO 8516 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 950 ms
+2022-10-11 07:28:34.993  INFO 8516 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2022-10-11 07:28:35.002  INFO 8516 --- [main] com.example.tgbot.TgbotApplication       : Started TgbotApplication in 2.743 seconds (JVM running for 3.162)
+2022-10-11 07:28:35.702  INFO 8516 --- [scheduling-1] com.example.tgbot.services.PingTask      : Ping www.google.com, OK: response code 200
