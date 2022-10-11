@@ -1,0 +1,44 @@
+image: docker:latest
+
+services:
+  - name: docker:dind
+    alias: 10.50.50.58
+    command: [ "--insecure-registry=registry.git.fido.uz" ]
+
+cache:
+  paths:
+    - .m2/repository
+
+variables:
+  DOCKER_DRIVER: overlay
+  SPRING_ACTIVE_PROFILE: gitlab-ci
+  CI_USER: gitlab+deploy-token-6
+  CI_TOKEN: zV6C21KyHhRLyamkXj_8
+  REPO: fido/fb-service-desk/telegrambot-api
+  APP_NAME: telegrambot-api
+  DOCKER_TLS_CERTDIR: ""
+  MAVEN_OPTS: "-Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository"
+
+
+stages:
+  - build jar
+  - build and push docker image
+  
+build:
+  image: maven:3-jdk-11
+  stage: build jar
+  variables:
+    MAVEN_OPTS: "-Dmaven.test.skip=true"
+
+  script:
+    - mvn clean install -Dspring.profiles.active=$SPRING_ACTIVE_PROFILE && mvn package -B -e -Dspring.profiles.active=$SPRING_ACTIVE_PROFILE
+  artifacts:
+    paths:
+      - target/*.jar
+
+docker-build:
+   stage: build and push docker image
+   script:
+     - docker login -u $CI_USER -p $CI_TOKEN registry.git.fido.uz
+     - docker build -t registry.git.fido.uz/$REPO .
+     - docker push registry.git.fido.uz/$REPO

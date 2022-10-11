@@ -1,0 +1,52 @@
+2022-10-11 06:54:02.211  INFO 1236 --- [main] com.example.tgbot.TgbotApplication       : Starting TgbotApplication using Java 11.0.11 on WIN-L2SVF18BLE9 with PID 1236 (C:\Users\User\Desktop\tgbot\target\classes started by User in C:\Users\User\Desktop\tgbot)
+2022-10-11 06:54:02.220  INFO 1236 --- [main] com.example.tgbot.TgbotApplication       : No active profile set, falling back to default profiles: default
+2022-10-11 06:54:03.142  INFO 1236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-10-11 06:54:03.161  INFO 1236 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 JPA repository interfaces.
+2022-10-11 06:54:04.232  INFO 1236 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2022-10-11 06:54:04.242  INFO 1236 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-10-11 06:54:04.242  INFO 1236 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-10-11 06:54:04.346  INFO 1236 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-10-11 06:54:04.346  INFO 1236 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2056 ms
+2022-10-11 06:54:04.412  WARN 1236 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'dataSourceScriptDatabaseInitializer' defined in class path resource [org/springframework/boot/autoconfigure/sql/init/DataSourceInitializationConfiguration.class]: Unsatisfied dependency expressed through method 'dataSourceScriptDatabaseInitializer' parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [com.zaxxer.hikari.HikariDataSource]: Factory method 'dataSource' threw exception; nested exception is org.springframework.boot.autoconfigure.jdbc.DataSourceProperties$DataSourceBeanCreationException: Failed to determine a suitable driver class
+2022-10-11 06:54:04.414  INFO 1236 --- [main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2022-10-11 06:54:04.592  INFO 1236 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2022-10-11 06:54:04.606 ERROR 1236 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+
+
+Action:
+
+Consider the following:
+	If you want an embedded database (H2, HSQL or Derby), please put it on the classpath.
+	If you have database settings to be loaded from a particular profile you may need to activate it (no profiles are currently active).
+
+2022-10-11 06:55:05.904  INFO 21712 --- [main] com.example.tgbot.TgbotApplication       : Starting TgbotApplication using Java 11.0.11 on WIN-L2SVF18BLE9 with PID 21712 (C:\Users\User\Desktop\tgbot\target\classes started by User in C:\Users\User\Desktop\tgbot)
+2022-10-11 06:55:05.907  INFO 21712 --- [main] com.example.tgbot.TgbotApplication       : No active profile set, falling back to default profiles: default
+2022-10-11 06:55:07.989  INFO 21712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2022-10-11 06:55:08.000  INFO 21712 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-10-11 06:55:08.000  INFO 21712 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-10-11 06:55:08.091  INFO 21712 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-10-11 06:55:08.091  INFO 21712 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2077 ms
+2022-10-11 06:55:09.898  INFO 21712 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2022-10-11 06:55:09.917  INFO 21712 --- [main] com.example.tgbot.TgbotApplication       : Started TgbotApplication in 4.51 seconds (JVM running for 5.052)
+2022-10-11 07:16:28.653  INFO 7904 --- [main] com.example.tgbot.TgbotApplication       : Starting TgbotApplication using Java 11.0.11 on WIN-L2SVF18BLE9 with PID 7904 (C:\Users\User\Desktop\tgbot\target\classes started by User in C:\Users\User\Desktop\tgbot)
+2022-10-11 07:16:28.656  INFO 7904 --- [main] com.example.tgbot.TgbotApplication       : No active profile set, falling back to default profiles: default
+2022-10-11 07:16:30.092  INFO 7904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8087 (http)
+2022-10-11 07:16:30.102  INFO 7904 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-10-11 07:16:30.103  INFO 7904 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.52]
+2022-10-11 07:16:30.223  INFO 7904 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-10-11 07:16:30.223  INFO 7904 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1497 ms
+2022-10-11 07:16:31.722  INFO 7904 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8087 (http) with context path ''
+2022-10-11 07:16:31.747  INFO 7904 --- [main] com.example.tgbot.TgbotApplication       : Started TgbotApplication in 3.504 seconds (JVM running for 3.953)
+2022-10-11 07:16:33.147  INFO 7904 --- [scheduling-1] com.example.tgbot.services.PingTask      : Ping www.google.com, OK: response code 200
