@@ -1,0 +1,9 @@
+com\example\tgbot\bot\MyBot.class
+com\example\tgbot\services\WebhookService.class
+com\example\tgbot\TgbotApplication.class
+com\example\tgbot\entity\Users.class
+com\example\tgbot\config\BotConfig.class
+com\example\tgbot\entity\Application.class
+com\example\tgbot\services\BotService.class
+com\example\tgbot\services\PingTask.class
+com\example\tgbot\controllers\TgApiController.class
