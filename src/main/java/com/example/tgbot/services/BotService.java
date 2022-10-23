@@ -19,6 +19,7 @@ import java.util.List;
 
 @Service
 public class BotService {
+    String adminChatId = "-1001886697941";
     @Autowired
     MyBot myBot;
     public void webhook(Update update, ArrayList<Users> users) throws TelegramApiException {
@@ -28,34 +29,23 @@ public class BotService {
             if(isAuthorized(String.valueOf(update.getMessage().getChatId()),users)){
                 Users users1 = getUser(update.getMessage().getChatId().toString(),users);
                 if(users1.getSession().equals("getPhone")){
-                    System.out.println("get phone : "+update.getMessage().getText());
-                    if(update.getMessage().getText().equals("support")){
-                        System.out.println("ADMIN message is here");
-                        users1.setRole("admin");
-                        users1.setSession("getApplication");
-                        SendMessage sendMessage = new SendMessage();
-                        sendMessage.setChatId(users1.getChat_id());
-                        String admin = EmojiParser.parseToUnicode(":man_technologist:");
-                        sendMessage.setText("Admin ro'yxatan o'tdi"+admin);
-                        myBot.execute(sendMessage);
-                    }
-                    else {
-                        users1.setNumber(update.getMessage().getText());
-                        users1.setRole("student");
-                        users1.setSession("start");
-                        KeyboardButton keyboardButton = new KeyboardButton();
-                        keyboardButton.setText("Murojat");
-                        KeyboardRow keyboardRow = new KeyboardRow();
-                        keyboardRow.add(keyboardButton);
-                        ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
-                        replyKeyboardMarkup.setKeyboard(List.of(keyboardRow));
-                        replyKeyboardMarkup.setResizeKeyboard(true);
-                        SendMessage sendMessage = new SendMessage();
-                        sendMessage.setReplyMarkup(replyKeyboardMarkup);
-                        sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
-                        sendMessage.setText("Murojatingizni boshlang");
-                        myBot.execute(sendMessage);
-                    }
+
+                    users1.setNumber(update.getMessage().getText());
+                    users1.setRole("student");
+                    users1.setSession("start");
+                    KeyboardButton keyboardButton = new KeyboardButton();
+                    keyboardButton.setText("Murojat");
+                    KeyboardRow keyboardRow = new KeyboardRow();
+                    keyboardRow.add(keyboardButton);
+                    ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
+                    replyKeyboardMarkup.setKeyboard(List.of(keyboardRow));
+                    replyKeyboardMarkup.setResizeKeyboard(true);
+                    SendMessage sendMessage = new SendMessage();
+                    sendMessage.setReplyMarkup(replyKeyboardMarkup);
+                    sendMessage.setChatId(String.valueOf(update.getMessage().getChatId()));
+                    sendMessage.setText("Murojatingizni boshlang");
+                    myBot.execute(sendMessage);
+
                 }
                 else if(users1.getSession().equals("getApplication")){
                     System.out.println("get Application session from admin");
@@ -64,8 +54,8 @@ public class BotService {
                     SendMessage sendMessage = new SendMessage();
                     sendMessage.setText(update.getMessage().getText());
 
-                        sendMessage.setChatId(update.getMessage().getReplyToMessage().getText().split("#")[0]);
-                        myBot.execute(sendMessage);
+                    sendMessage.setChatId(update.getMessage().getReplyToMessage().getText().split("#")[0]);
+                    myBot.execute(sendMessage);
 
 
                 }
@@ -158,25 +148,24 @@ public class BotService {
                         sendMessage.setReplyMarkup(replyKeyboardMarkup);
                         myBot.execute(sendMessage);
                         //send to admins
-                        for(var user:users){
-                            if(user.getRole().equals("admin")){
-                                SendMessage sendMessage1 = new SendMessage();
-                                sendMessage1.setChatId(user.getChat_id());
-                                String phone = EmojiParser.parseToUnicode(":iphone:");
-                                String group = EmojiParser.parseToUnicode(":busts_in_silhouette:");
-                                String person = EmojiParser.parseToUnicode(":bust_in_silhouette:");
-                                String memo = EmojiParser.parseToUnicode(":memo:");
-                                String application = users1.getChat_id()+"#\n"+person+"F.I.Sh: "+users1.getApplication().getUsername()+"\n"+
-                                        phone+"Telefon raqam: "+users1.getApplication().getUsernumber()+
-                                        "\n"+group+"Guruh: "+users1.getApplication().getUserGroup()+"\n"+
-                                        memo+"Murojat: "+users1.getApplication().getText();
-                                sendMessage1.setText(application);
-                                int messageId = myBot.execute(sendMessage1).getMessageId();
-                                System.out.println("this is message id in admins chat "+messageId);
-                                users1.getApplication().setMessageId(String.valueOf(messageId));
 
-                            }
-                        }
+                        SendMessage sendMessage1 = new SendMessage();
+                        sendMessage1.setChatId(adminChatId);
+                        String phone = EmojiParser.parseToUnicode(":iphone:");
+                        String group = EmojiParser.parseToUnicode(":busts_in_silhouette:");
+                        String person = EmojiParser.parseToUnicode(":bust_in_silhouette:");
+                        String memo = EmojiParser.parseToUnicode(":memo:");
+                        String application = users1.getChat_id()+"#\n"+person+"F.I.Sh: "+users1.getApplication().getUsername()+"\n"+
+                                phone+"Telefon raqam: "+users1.getApplication().getUsernumber()+
+                                "\n"+group+"Guruh: "+users1.getApplication().getUserGroup()+"\n"+
+                                memo+"Murojat: "+users1.getApplication().getText();
+                        sendMessage1.setText(application);
+                        int messageId = myBot.execute(sendMessage1).getMessageId();
+                        System.out.println("this is message id in admins chat "+messageId);
+                        users1.getApplication().setMessageId(String.valueOf(messageId));
+
+
+
 
                     }
                     else if(update.getMessage().getText().equals("Bekor qilish")){
@@ -199,6 +188,13 @@ public class BotService {
                     }
                 }
             }
+            else if(update.getMessage().getChatId().toString().equals(adminChatId)){
+                SendMessage sendMessage = new SendMessage();
+                sendMessage.setText(update.getMessage().getText());
+
+                sendMessage.setChatId(update.getMessage().getReplyToMessage().getText().split("#")[0]);
+                myBot.execute(sendMessage);
+            }
             else {
                 Users users1 = new Users();
                 users1.setChat_id(String.valueOf(update.getMessage().getChatId()));
@@ -213,6 +209,7 @@ public class BotService {
             }
         }
     }
+
 
     private boolean isAuthorized(String chat_id, ArrayList<Users> users){
         boolean authorized = false;
